@@ -6,6 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1><%= dateOfTheDay %></h1>
+    <ul>
+       <% for(var i=0;i<toDoItem.length;i++){ %>
+            <li> <%= toDoItem[i] %></li>
+        <% } %>
+    </ul>
+    <form action="/" method="post">
+        <input type="text" name="addList">
+        <button type="submit">add</button>
+    </form>
 </body>
 </html>
