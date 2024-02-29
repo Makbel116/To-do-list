@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 
 
 let general_tasks = [];
-
+let work_tasks= [];
 
 app.get("/", function (req, res) {
   //to set the day
@@ -21,7 +21,7 @@ app.get("/", function (req, res) {
 
   // to render the list.ejs
   res.render("list", {
-    dateOfTheDay: day,
+    listTitle: day,
     toDoItem: general_tasks,
     placeholder: placeholder,
   });
@@ -38,3 +38,20 @@ app.post("/", function (req, res) {
 app.listen(3000, function (req, res) {
   console.log("server is running.");
 });
+
+app.get("/work",function(req,res){
+  
+  let placeholder = modules.setPlaceholder();
+
+  res.render("work", {
+    listTitle: "Work",
+    toDoItem: work_tasks,
+    placeholder: placeholder,
+  });
+})
+app.post("/work",function(req,res){
+  let task = req.body.addList;
+  modules.setTask(work_tasks, task);
+  res.redirect("/work");
+
+})

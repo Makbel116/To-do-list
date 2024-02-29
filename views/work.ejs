@@ -1,4 +1,5 @@
 <%- include ("headers") -%>
+
     <div class="box" id="heading">
         <h1><%= listTitle %></h1>
     </div>
@@ -11,9 +12,9 @@
             </div>
         <% } %>   
 
-        <form class="item" action="/" method="post">
+        <form class="item" action="/work" method="post">
             <input type="text" name="addList" placeholder= "<%= placeholder %>" autocomplete="off">
             <button type="submit">+</button>
         </form>
     </div>
-<%- include ("footer") -%>
+    <%- include ("footer") -%>
