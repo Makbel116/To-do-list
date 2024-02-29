@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>to do list</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1><%= dateOfTheDay %></h1>
-    <ul>
-       <% for(var i=0;i<toDoItem.length;i++){ %>
-            <li> <%= toDoItem[i] %></li>
-        <% } %>
-    </ul>
-    <form action="/" method="post">
-        <input type="text" name="addList">
-        <button type="submit">add</button>
-    </form>
+    <div class="box" id="heading">
+        <h1><%= dateOfTheDay %></h1>
+    </div>
+
+    <div class="box">
+        <% for(var i=0;i<toDoItem.length;i++){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p> <%= toDoItem[i] %></p> 
+            </div>
+        <% } %>   
+
+        <form class="item" action="/" method="post">
+            <input type="text" name="addList" placeholder= "<%= placeholder %>" autocomplete="off">
+            <button type="submit">+</button>
+        </form>
+    </div>
 </body>
 </html>
