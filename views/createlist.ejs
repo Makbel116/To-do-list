@@ -1,0 +1,9 @@
+<%- include ("partials/header") -%>
+<div class="box" id="heading">
+    <h1>create a new list</h1>
+</div>
+<form action="/createlist" method="post">
+    <input type="text"  name="addNewList" placeholder="enter the name of the new list">
+    <button type="submit" class="btn btn-success">add</button>
+</form>
+<%- include ("partials/footer") -%>
