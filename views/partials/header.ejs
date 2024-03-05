@@ -50,7 +50,11 @@
       </div>
       <div class="offcanvas-body">
         <a class="link-light" href="/" role="button">Home</a>
-        <!-- <a class="link-light" href="work" role="button">Work</a> -->
+        <% specific_lists.forEach(list => { %>
+          <a class="link-light specific_lists" href="/lists/<%= list.listTitle %>" role="button"><%= list.listTitle %> </a>
+       <%  }); %>
+          
+       <a class="link-light mx-4 bg-success" href="/createlist"  role="button">add a list</a>
       </div>
     </div>
   

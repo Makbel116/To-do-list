@@ -21,6 +21,7 @@ app.get("/", function (req, res) {
 
   // to render the list.ejs
   res.render("home", {
+    specific_lists:specific_lists,
     listTitle: day,
     toDoItem: general_tasks,
     placeholder: placeholder,
@@ -35,14 +36,14 @@ app.post("/", function (req, res) {
 });
 
 app.get("/createlist",function(req,res){
-  res.render("createlist");
+  res.render("createlist",{specific_lists:specific_lists});
 })
 app.post("/createlist",function(req,res){
 
   let TasksOfList=[];
   
   let listObject={
-    'listTitle':req.body.addNewList,
+    'listTitle':_.kebabCase(req.body.addNewList),
     'listTasks':TasksOfList
   }
   specific_lists.push(listObject);
@@ -55,6 +56,7 @@ app.get("/lists/:list",function(req,res){
   specific_lists.forEach(list => {
     if(listParam===_.kebabCase(list.listTitle)){
         res.render("lists",{
+          specific_lists:specific_lists,
           listTitle:_.kebabCase(list.listTitle),
           toDoItem:list.listTasks,
           placeholder:placeholder
